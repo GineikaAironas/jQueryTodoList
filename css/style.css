@@ -1,0 +1,100 @@
+:root {
+    --outlineBorder: 5px solid black;
+    --innerBorder: 2px solid black;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 24px;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top, rgb(19, 1, 17), rgb(126, 3, 118));
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    min-height: 100%;
+}
+#mainHeader {
+    text-align: center;
+    background-color: #63d;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5em 0;
+}
+#todoInput {
+    width: 100%;
+    height: 2rem;
+    font-size: 1.25rem;
+    padding: 0.125em 0;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    background-color: #e7e7ff;
+}
+#todoListBlock {
+    background-color: #eef;
+    margin-top: 5em;
+    justify-self: center;
+    border: var(--outlineBorder);
+    width: 50%;
+}
+
+#allTodos li {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.125em;
+    padding: 0.1em 1em;
+    list-style: none;
+    border-top: var(--innerBorder);
+}
+#allTodos li.strikedOut {
+    text-decoration: line-through;
+    color: #888;
+}
+#allTodos li.removeTransition {
+    width: 90%;
+}
+#allTodos div:nth-of-type(odd) {
+    background-color: #ddd;
+}
+#allTodos div:nth-of-type(even) {
+    background-color: #eee;
+}
+
+.todoContainer {
+    width: 100%;
+    display: flex;
+}
+.todoContainer:hover {
+    transition: all 1s;
+}
+.todoContainer:hover .removeTodoButton {
+    width: 10%;
+    opacity: 100%;
+}
+.removeTodoButton {
+    background-color: #0b0;
+    color: #fff;
+    width: 0%;
+    opacity: 0;
+    outline: 0;
+    border: 0;
+    border-top: var(--innerBorder);
+    transition: all 600ms;
+}
+
+.removeTodoButton i::before {
+    opacity: 0;
+    transition: all 1s;
+}
+.todoContainer:hover .removeTodoButton i::before {
+    opacity: 1;
+    transition: all 1s;
+}
